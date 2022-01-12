@@ -18,7 +18,15 @@ print ("\n\n\n\n\n")
 
 middle = int(len(data)/2) #middle of the data
 slice_percentage_length = int(len(data)*.01)  #percentage slice of the data
-middle_data_slice = data[middle-int(slice_percentage_length/2):middle+int(slice_percentage_length/2)] #slice of the middle of the data
+start_of_slice = middle-int(slice_percentage_length/2) #start of slice data
+end_of_slice = middle+int(slice_percentage_length/2) #end of slice data
+if data[end_of_slice] != ' ': #check is data is whole 
+	if data[end_of_slice+1] != ' ':
+		end_of_slice = end_of_slice+2
+	else:
+		end_of_slice = end_of_slice+1
+end_of_slice = end_of_slice + 3
+middle_data_slice = data[start_of_slice:end_of_slice] #slice of the middle of the data
 
 
 #print (middle) # middle position in the data (bytes)
@@ -28,8 +36,6 @@ middle_data_slice = data[middle-int(slice_percentage_length/2):middle+int(slice_
 #data [middle-8:middle+8]
 print ("Data slice from the middle removed below")
 print (middle_data_slice)
-
-modified_data = data
 
 starting_value = middle-int(slice_percentage_length/2)
 
@@ -41,5 +47,20 @@ for hex_value in middle_data_slice: #remove the data from the slice
 	data.pop(starting_value)
 
 print (int(len(data)))
+
+#data = data.replace(' ','')
+#data = binascii.a2b_hex(data)
+#with open(script_path+"/edgar_1.jpeg", 'wb') as image_file:
+#    image_file.write(data)
+
+data = bytes(data)
+
+data=data.strip()
+data=data.replace(b' ', b'')
+#data=data.replace('\n', '')
+print(data)
+data = binascii.a2b_hex(data)
+with open(script_path+"/edgar_1.jpeg", 'wb') as image_file:
+    image_file.write(data)
 
 
