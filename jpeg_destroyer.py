@@ -38,7 +38,7 @@ my_file = '/Users/ijames/Documents/GitHub/jpeg_destruction/edgar.jpeg'
 base = os.path.splitext(my_file)[0]
 os.rename(my_file, base + '.txt')
 
-print("image becomes .txt")
+print("image becomes .txt\n")
 
 # Loop through the file and read it line by line#
 f = open("/Users/ijames/Documents/GitHub/jpeg_destruction/edgar.txt", "rb")
@@ -46,14 +46,12 @@ for x in f:
   print(x)
 
 
-
-
 #(txt to jpeg) Split the target filename by '.' and replace the last entry by the new extension you want
 my_file = '/Users/ijames/Documents/GitHub/jpeg_destruction/edgar.txt'
 base = os.path.splitext(my_file)[0]
 os.rename(my_file, base + '.jpeg')
 
-print("image becomes .jpeg")
+print("\nimage becomes .jpeg\n")
 
 
 
