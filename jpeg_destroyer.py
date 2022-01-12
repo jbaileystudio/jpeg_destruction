@@ -41,9 +41,12 @@ os.rename(my_file, base + '.txt')
 print("image becomes .txt")
 
 # Loop through the file and read it line by line#
-f = open("/Users/ijames/Documents/GitHub/jpeg_destruction/demotext.txt", "r")
+f = open("/Users/ijames/Documents/GitHub/jpeg_destruction/edgar.txt", "rb")
 for x in f:
   print(x)
+
+
+
 
 #(txt to jpeg) Split the target filename by '.' and replace the last entry by the new extension you want
 my_file = '/Users/ijames/Documents/GitHub/jpeg_destruction/edgar.txt'
