@@ -55,9 +55,6 @@ print("\nimage becomes .jpeg\n")
 
 
 
-
-
-
 # Close the file opened
 #f = open("/Users/ijames/Documents/GitHub/jpeg_destruction/demotext.txt", "r")
 #print(f.readline())
