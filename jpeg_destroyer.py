@@ -1,3 +1,6 @@
+
+import os
+
 #print 1000 digits in a column
 #for i in range(1,10):
 #	print (i)
@@ -29,11 +32,30 @@
 
 #print("4---")
 
+
+#(jpeg to txt) Split the target filename by '.' and replace the last entry by the new extension you want
+my_file = '/Users/ijames/Documents/GitHub/jpeg_destruction/edgar.jpeg'
+base = os.path.splitext(my_file)[0]
+os.rename(my_file, base + '.txt')
+
+print("image becomes .txt")
+
 # Loop through the file and read it line by line#
 f = open("/Users/ijames/Documents/GitHub/jpeg_destruction/demotext.txt", "r")
 for x in f:
   print(x)
-f.close()
+
+#(txt to jpeg) Split the target filename by '.' and replace the last entry by the new extension you want
+my_file = '/Users/ijames/Documents/GitHub/jpeg_destruction/edgar.txt'
+base = os.path.splitext(my_file)[0]
+os.rename(my_file, base + '.jpeg')
+
+print("image becomes .jpeg")
+
+
+
+
+
 
 # Close the file opened
 #f = open("/Users/ijames/Documents/GitHub/jpeg_destruction/demotext.txt", "r")
