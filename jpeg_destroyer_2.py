@@ -16,8 +16,8 @@ print ("\n\n\n\n\n")
 #print (hex(data[100]))
 #print (data[100])
 
-middle = int(len(data)/2)
-slice_percentage_length = int(len(data)*.01)
+middle = int(len(data)/2) #middle of the data
+slice_percentage_length = int(len(data)*.01)  #percentage slice of the data
 middle_data_slice = data[middle-int(slice_percentage_length/2):middle+int(slice_percentage_length/2)] #slice of the middle of the data
 
 
