@@ -40,7 +40,7 @@ os.rename(my_file, base + '.txt')
 
 print("image becomes .txt\n")
 
-# Loop through the file and read it line by line#
+# Loop through the file and read it line by line and gives you a bytes object#
 f = open("/Users/ijames/Documents/GitHub/jpeg_destruction/edgar.txt", "rb")
 for x in f:
   print(x)
