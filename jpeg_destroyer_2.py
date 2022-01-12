@@ -5,6 +5,10 @@ import sys
 def get_script_path():
     return os.path.dirname(os.path.realpath(sys.argv[0]))
 
+#variables
+percent_removed = .01
+
+
 script_path=get_script_path()
 
 with open(script_path+'/edgar.jpeg', 'rb') as image_file:
@@ -16,16 +20,24 @@ print ("\n\n\n\n\n")
 #print (hex(data[100]))
 #print (data[100])
 
-middle = int(len(data)/2) #middle of the data
-slice_percentage_length = int(len(data)*.01)  #percentage slice of the data
+middle = int(len(data)/2) #location of the data (right now in the middle)
+slice_percentage_length = int(len(data)*percent_removed)  #percentage slice of the data
 start_of_slice = middle-int(slice_percentage_length/2) #start of slice data
 end_of_slice = middle+int(slice_percentage_length/2) #end of slice data
-if data[end_of_slice] != ' ': #check is data is whole 
+if data[end_of_slice] != ' ': #check if data is whole 
 	if data[end_of_slice+1] != ' ':
 		end_of_slice = end_of_slice+2
 	else:
 		end_of_slice = end_of_slice+1
-end_of_slice = end_of_slice + 3
+if data[start_of_slice] != ' ': #check if data is whole 
+	if data[start_of_slice+1] != ' ':
+		start_of_slice = start_of_slice+3
+	else:
+		start_of_slice = start_of_slice+2
+
+if (end_of_slice-start_of_slice) % 2: #spits out 0 or 1, to check is # is even or odd
+	 end_of_slice = end_of_slice + 3
+
 middle_data_slice = data[start_of_slice:end_of_slice] #slice of the middle of the data
 
 
@@ -57,8 +69,7 @@ data = bytes(data)
 
 data=data.strip()
 data=data.replace(b' ', b'')
-#data=data.replace('\n', '')
-print(data)
+#print(data)
 data = binascii.a2b_hex(data)
 with open(script_path+"/edgar_1.jpeg", 'wb') as image_file:
     image_file.write(data)
