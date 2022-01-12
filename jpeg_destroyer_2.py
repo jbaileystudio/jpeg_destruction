@@ -32,9 +32,14 @@ modified_data = data
 
 starting_value = middle-int(slice_percentage_length/2)
 
+data = bytearray(data)
+
+print (int(len(data)))
+
 for hex_value in middle_data_slice: #remove the data from the slice
 	data.pop(starting_value)
 
+print (int(len(data)))
 
 
 
